@@ -1,0 +1,30 @@
+name: Publish Helm Charts
+
+on:
+  push:
+
+jobs:
+  get-version:
+    name: Get version from bumpversion
+    outputs:
+      version: ${{ steps.get-version.outputs.VERSION }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Get current version from bumpversion
+        run: echo "VERSION=$(cat .bumpversion.cfg | sed -nE 's/.*current_version = (.*)/\1/p')${{}}" >> GITHUB_OUTPUT
+        shell: bash
+
+  call-workflow-passing-data:
+    name: Publish Helm chart
+    uses: bakdata/ci-templates/.github/workflows/helm-multi-release.yaml@1.46.3
+    needs: get-version
+    with:
+      charts-path: "./charts"
+      subdirs: "['rclone-copy']"
+      gh-pages-branch: gh-pages
+      version: ${{ needs.get-version.outputs.version }}
+    secrets:
+      github-username: ${{ secrets.GH_USERNAME }}
+      github-email: ${{ secrets.GH_EMAIL }}
+      github-token: ${{ secrets.GH_TOKEN }}
