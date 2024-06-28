@@ -16,6 +16,9 @@ jobs:
         id: get-version
         run: |
           version=$(cat .bumpversion.cfg | sed -nE 's/.*current_version = (.*)/\1/p')
+          if [[ "${GITHUB_REF#refs/heads/}" != "main" && "${GITHUB_REF#refs/heads/}" != "master" ]]; then
+            version="${version}-SNAPSHOT"
+          fi
           echo $version
           echo "version=$version" >> $GITHUB_OUTPUT
         shell: bash
