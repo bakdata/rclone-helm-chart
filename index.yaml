@@ -2,7 +2,19 @@ apiVersion: v1
 entries:
   rclone-copy:
   - apiVersion: v1
-    created: "2024-06-28T08:52:40.408454025Z"
+    created: "2024-06-28T14:58:50.371043834Z"
+    description: A helm chart for rclone copy on Kubernetes.
+    digest: 256fa10568e7e68560841ed84791d3d4d40e9b9f52fd7a932cd2b016f3c1a74f
+    maintainers:
+    - email: opensource@bakdata.com
+      name: bakdata
+      url: bakdata.com
+    name: rclone-copy
+    urls:
+    - rclone-copy/rclone-copy-2.23.0-SNAPSHOT.tgz
+    version: 2.23.0-SNAPSHOT
+  - apiVersion: v1
+    created: "2024-06-28T14:58:50.370726622Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: e94e1646e26ebc7a389e6d49d305f87b018035faefe12445f1e4377a7d01e909
     maintainers:
@@ -13,4 +25,4 @@ entries:
     urls:
     - rclone-copy/rclone-copy-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2024-06-28T08:52:40.407990499Z"
+generated: "2024-06-28T14:58:50.370255854Z"
