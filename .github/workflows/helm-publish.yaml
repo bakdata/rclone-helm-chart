@@ -13,6 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Get current version from bumpversion
+        id: get-version
         run: |
           version=$(cat .bumpversion.cfg | sed -nE 's/.*current_version = (.*)/\1/p')
           echo $version
