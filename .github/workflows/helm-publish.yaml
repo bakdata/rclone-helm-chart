@@ -25,7 +25,7 @@ jobs:
 
   call-workflow-passing-data:
     name: Publish Helm chart
-    uses: bakdata/ci-templates/.github/workflows/helm-multi-release.yaml@tiedemann/fix-helm-publish
+    uses: bakdata/ci-templates/.github/workflows/helm-multi-release.yaml@1.46.4
     needs: get-version
     with:
       charts-path: "./charts"
