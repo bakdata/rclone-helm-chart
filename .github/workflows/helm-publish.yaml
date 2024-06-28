@@ -6,6 +6,7 @@ on:
 jobs:
   get-version:
     name: Get version from bumpversion
+    runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.get-version.outputs.VERSION }}
     steps:
