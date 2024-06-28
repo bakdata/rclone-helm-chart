@@ -14,8 +14,8 @@ on:
           - major
 
 jobs:
-  java-gradle-release:
-    name: Java Gradle
+  bump-version-release:
+    name: Bumpversion Release
     uses: bakdata/ci-templates/.github/workflows/bump-version-release.yaml@1.46.4
     with:
       release-type: "${{ inputs.release-type }}"
