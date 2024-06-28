@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Get current version from bumpversion
-        run: echo "VERSION=$(cat .bumpversion.cfg | sed -nE 's/.*current_version = (.*)/\1/p')${{}}" >> GITHUB_OUTPUT
+        run: echo "VERSION=$(cat .bumpversion.cfg | sed -nE 's/.*current_version = (.*)/\1/p')" >> GITHUB_OUTPUT
         shell: bash
 
   call-workflow-passing-data:
