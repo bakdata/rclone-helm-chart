@@ -15,7 +15,7 @@ jobs:
       - name: Get current version from bumpversion
         run: |
           version=$(cat .bumpversion.cfg | sed -nE 's/.*current_version = (.*)/\1/p')
-          cat $version
+          echo $version
           echo "version=$version" >> GITHUB_OUTPUT
         shell: bash
 
