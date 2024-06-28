@@ -16,7 +16,7 @@ jobs:
         run: |
           version=$(cat .bumpversion.cfg | sed -nE 's/.*current_version = (.*)/\1/p')
           echo $version
-          echo "version=$version" >> GITHUB_OUTPUT
+          echo "version=$version" >> $GITHUB_OUTPUT
         shell: bash
 
   call-workflow-passing-data:
