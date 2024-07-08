@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   rclone-copy:
   - apiVersion: v1
-    created: "2024-07-08T11:26:43.18560794Z"
+    created: "2024-07-08T11:30:33.633065269Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 8820892eab7c2b98c8c6c712e52bdb85dd324cf3130f513f81a6203a40199c20
     maintainers:
@@ -14,7 +14,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.2-SNAPSHOT.tgz
     version: 2.23.2-SNAPSHOT
   - apiVersion: v1
-    created: "2024-07-08T11:26:43.185301244Z"
+    created: "2024-07-08T11:30:33.63279775Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 5d8992f60c3af7c6b126361a8cf33a90391c0e9263b8b5326e672cc6dbc222b2
     maintainers:
@@ -26,9 +26,9 @@ entries:
     - rclone-copy/rclone-copy-2.23.1.tgz
     version: 2.23.1
   - apiVersion: v1
-    created: "2024-07-08T11:26:43.185026688Z"
+    created: "2024-07-08T11:30:33.632536533Z"
     description: A helm chart for rclone copy on Kubernetes.
-    digest: 461c371f6bc440a9210d6e0e62c1bb80b3b4bb6909ff33e3c6c6f38eeb82c111
+    digest: 7c2977fd13c18e5eb2fc10b3c05fadc7b81d0abeac568d8b64e6e62b14013a0e
     maintainers:
     - email: opensource@bakdata.com
       name: bakdata
@@ -38,7 +38,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.1-SNAPSHOT.tgz
     version: 2.23.1-SNAPSHOT
   - apiVersion: v1
-    created: "2024-07-08T11:26:43.184759326Z"
+    created: "2024-07-08T11:30:33.632069522Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 8ada537c002c52f8076a86082e141325db21ac921be7b1299a93f2bd64f85c9e
     maintainers:
@@ -50,7 +50,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.0-SNAPSHOT.tgz
     version: 2.23.0-SNAPSHOT
   - apiVersion: v1
-    created: "2024-07-08T11:26:43.18446848Z"
+    created: "2024-07-08T11:30:33.631805409Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: e94e1646e26ebc7a389e6d49d305f87b018035faefe12445f1e4377a7d01e909
     maintainers:
@@ -61,4 +61,4 @@ entries:
     urls:
     - rclone-copy/rclone-copy-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2024-07-08T11:26:43.184001332Z"
+generated: "2024-07-08T11:30:33.631365368Z"
