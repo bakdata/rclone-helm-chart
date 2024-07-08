@@ -12,17 +12,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up bump2version
+        run: |
+          pipx install bump2version
+        shell: bash
+
       - name: Get current version from bumpversion
         id: get-version
         run: |
           version=$(sed -nE 's/.*current_version = (.*)/\1/p' < .bumpversion.cfg)
           if ! [[ "$GITHUB_REF" =~ ^refs/tags/.* ]]; then
+            bump2version --allow-dirty --no-tag --no-commit patch
             version="${version}-SNAPSHOT"
           fi
           echo "version=$version" >> $GITHUB_OUTPUT
         shell: bash
 
-  call-workflow-passing-data:
+  publish:
     name: Publish Helm chart
     uses: bakdata/ci-templates/.github/workflows/helm-multi-release.yaml@1.46.4
     needs: get-version
