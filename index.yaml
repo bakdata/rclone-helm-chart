@@ -2,7 +2,19 @@ apiVersion: v1
 entries:
   rclone-copy:
   - apiVersion: v1
-    created: "2024-07-08T11:22:05.286706992Z"
+    created: "2024-07-08T11:25:11.990554546Z"
+    description: A helm chart for rclone copy on Kubernetes.
+    digest: d04a01f247ccfdbda98cbb43df7647d16c49cb2eb8bc60e5c9b6bb3667ea890c
+    maintainers:
+    - email: opensource@bakdata.com
+      name: bakdata
+      url: bakdata.com
+    name: rclone-copy
+    urls:
+    - rclone-copy/rclone-copy-2.23.2-SNAPSHOT.tgz
+    version: 2.23.2-SNAPSHOT
+  - apiVersion: v1
+    created: "2024-07-08T11:25:11.990278622Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 5d8992f60c3af7c6b126361a8cf33a90391c0e9263b8b5326e672cc6dbc222b2
     maintainers:
@@ -14,7 +26,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.1.tgz
     version: 2.23.1
   - apiVersion: v1
-    created: "2024-07-08T11:22:05.286375232Z"
+    created: "2024-07-08T11:25:11.990033175Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 461c371f6bc440a9210d6e0e62c1bb80b3b4bb6909ff33e3c6c6f38eeb82c111
     maintainers:
@@ -26,7 +38,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.1-SNAPSHOT.tgz
     version: 2.23.1-SNAPSHOT
   - apiVersion: v1
-    created: "2024-07-08T11:22:05.286099115Z"
+    created: "2024-07-08T11:25:11.989767621Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 8ada537c002c52f8076a86082e141325db21ac921be7b1299a93f2bd64f85c9e
     maintainers:
@@ -38,7 +50,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.0-SNAPSHOT.tgz
     version: 2.23.0-SNAPSHOT
   - apiVersion: v1
-    created: "2024-07-08T11:22:05.285793213Z"
+    created: "2024-07-08T11:25:11.989491176Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: e94e1646e26ebc7a389e6d49d305f87b018035faefe12445f1e4377a7d01e909
     maintainers:
@@ -49,4 +61,4 @@ entries:
     urls:
     - rclone-copy/rclone-copy-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2024-07-08T11:22:05.28528915Z"
+generated: "2024-07-08T11:25:11.988996134Z"
