@@ -72,7 +72,7 @@ spec:
                 # This is the default path where the rclone implementation assumes the config is located
                 mountPath: "/root/.config/rclone/rclone_ro.conf"
                 subPath: "rclone.conf"
-              - name: config
+              - name: include-config
                 mountPath: "/root/include-pattern.conf"
                 subPath: "include-pattern.conf"
             
@@ -91,6 +91,9 @@ spec:
           restartPolicy: {{ .Values.restartPolicy }}
           volumes:
             - name: config
+              secret:
+                secretName: rclone-config-{{ .Release.Name }}
+            - name: include-config
               configMap:
                 name: rclone-config-{{ .Release.Name }}
       backoffLimit: {{ .Values.backoffLimit }}
