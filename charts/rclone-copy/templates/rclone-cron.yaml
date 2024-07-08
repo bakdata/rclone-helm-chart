@@ -79,12 +79,14 @@ spec:
             resources:
 {{ toYaml .Values.resources | indent 14 }}
 
+            {{- if .Values.configPassword }}
             env:
               - name: RCLONE_CONFIG_PASS
                 valueFrom:
                   secretKeyRef:
                     name: rclone-config-{{ .Release.Name }}
                     key: password
+            {{- end }}
           
           restartPolicy: {{ .Values.restartPolicy }}
           volumes:
