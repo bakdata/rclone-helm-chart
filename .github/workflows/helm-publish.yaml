@@ -24,6 +24,8 @@ jobs:
           if ! [[ "$GITHUB_REF" =~ ^refs/tags/.* ]]; then
             bump2version --allow-dirty --no-tag --no-commit patch
             version="$(sed -nE 's/.*current_version = (.*)/\1/p' < .bumpversion.cfg)-SNAPSHOT"
+          else
+            version="$(sed -nE 's/.*current_version = (.*)/\1/p' < .bumpversion.cfg)"
           fi
           echo "version=$version" >> $GITHUB_OUTPUT
         shell: bash
