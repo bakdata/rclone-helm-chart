@@ -76,3 +76,5 @@ backoffLimit: 6
 podAnnotations: {}
 
 podLabels: {}
+
+# configPassword: password
