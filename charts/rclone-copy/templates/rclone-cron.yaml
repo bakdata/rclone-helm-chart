@@ -57,6 +57,7 @@ spec:
           containers:
           - name: rclone-container
             image: rclone/rclone:{{ .Values.imageRelease }}
+            imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
             
             command:
               - /bin/sh
