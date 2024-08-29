@@ -58,7 +58,7 @@ spec:
           - name: rclone-container
             image: rclone/rclone:{{ .Values.imageRelease }}
             imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
-            
+
             command:
               - /bin/sh
             args:
@@ -66,8 +66,8 @@ spec:
               # copy as workaround for rclone.conf read only (see https://github.com/rclone/rclone/issues/3655)
               - >-
                 cp /root/.config/rclone/rclone_ro.conf /root/.config/rclone/rclone.conf &&
-                rclone copy -v {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ .Values.sync.source.name }}:{{ .Values.sync.source.path }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
-            
+                rclone {{ .Values.command }} -v {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ .Values.sync.source.name }}:{{ .Values.sync.source.path }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
+
             volumeMounts:
               - name: config
                 # This is the default path where the rclone implementation assumes the config is located
@@ -76,7 +76,7 @@ spec:
               - name: include-config
                 mountPath: "/root/include-pattern.conf"
                 subPath: "include-pattern.conf"
-            
+
             resources:
 {{ toYaml .Values.resources | indent 14 }}
 
@@ -97,7 +97,7 @@ spec:
                     key: "{{ $value.key }}"
             {{- end }}
             {{- end }}
-          
+
           restartPolicy: {{ .Values.restartPolicy }}
           volumes:
             - name: config
@@ -107,4 +107,3 @@ spec:
               configMap:
                 name: rclone-config-{{ .Release.Name }}
       backoffLimit: {{ .Values.backoffLimit }}
-

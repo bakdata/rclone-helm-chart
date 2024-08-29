@@ -3,7 +3,7 @@ nameOverride: bakdata-rclone-copy
 # This is the cofiguration for the specific rclone-cronjob that you want to run.
 # `sync` contains the config for the source and destination of the rclone copy job.
 # It can be interpreted as:
-# rclone copy {source.name}:{source.path} {dest.name}:{dest.path}
+# rclone {command} {sync.source.name}:{sync.source.path} {sync.dest.name}:{sync.dest.path}
 sync:
   source:
     # This is the name for the source remote from the rclone.conf file.
@@ -22,6 +22,9 @@ sync:
 
     # This is the path to the target directory.
     path: my-s3-bucket
+
+# The rclone command to run. Default is "copy".
+command: "copy"
 
 # Additional arguments to pass to rclone.
 # The expected value is an array with comma seperated flag and value passed as a string.
