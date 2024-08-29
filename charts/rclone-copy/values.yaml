@@ -14,6 +14,9 @@ sync:
     # This is the path to the source directory.
     path: /tmp/sync-dir
 
+  # Alternatively for the case of `rclone copyurl`, provide a URL instead of a source
+  url: https://example.com/myFileDownload
+
   dest:
     # This is the name for the destination remote from the rclone.conf file.
     # If the value specified here is not present in the config file, the job will fail.
