@@ -1,9 +1,12 @@
 nameOverride: bakdata-rclone-copy
 
+# The rclone command to run. Default is "copy".
+command: "copy"
+
 # This is the cofiguration for the specific rclone-cronjob that you want to run.
 # `sync` contains the config for the source and destination of the rclone copy job.
 # It can be interpreted as:
-# rclone copy {source.name}:{source.path} {dest.name}:{dest.path}
+# rclone {command} {sync.source.name}:{sync.source.path} {sync.dest.name}:{sync.dest.path}
 sync:
   source:
     # This is the name for the source remote from the rclone.conf file.
@@ -13,6 +16,9 @@ sync:
 
     # This is the path to the source directory.
     path: /tmp/sync-dir
+
+  # Alternatively for the case of `rclone copyurl`, provide a URL instead of a source
+  url: ""
 
   dest:
     # This is the name for the destination remote from the rclone.conf file.
