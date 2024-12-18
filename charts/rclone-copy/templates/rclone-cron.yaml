@@ -69,7 +69,7 @@ spec:
                 rclone {{ .Values.command }} -v {{ if .Values.passwordSecret }}--password-command="echo $PASSWORD"{{ end }} {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ include "rclone-copy.getSourceOrUrl" . }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
 
             volumeMounts:
-              - name: {{ .Values.secretConfig | ternary "secret-config" "config" | quote }}
+              - name: {{ .Values.secretConfig | ternary "secret-config" "config" }}
                 # This is the default path where the rclone implementation assumes the config is located
                 mountPath: "/root/.config/rclone/rclone_ro.conf"
                 subPath: "rclone.conf"
