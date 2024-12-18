@@ -92,3 +92,5 @@ secretRefs: {}
 #    key: secretKey
 
 secretConfig: false
+
+# passwordVariable: MY_SECRET

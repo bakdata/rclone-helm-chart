@@ -84,7 +84,7 @@ spec:
             resources:
 {{ toYaml .Values.resources | indent 14 }}
 
-            {{- if or .Values.configPassword .Values.secretRefs }}
+            {{- if or .Values.configPassword .Values.secretRefs .Values.passwordVariable }}
             env:
             {{- if .Values.configPassword }}
               - name: RCLONE_CONFIG_PASS
@@ -99,6 +99,10 @@ spec:
                   secretKeyRef:
                     name: {{ $value.name }}
                     key: "{{ $value.key }}"
+            {{- end }}
+            {{- if .Values.passwordVariable }}
+              - name: RCLONE_PASSWORD_COMMAND
+                value: {{ printf "echo $%s" .Values.passwordVariable | quote }}
             {{- end }}
             {{- end }}
 
