@@ -66,7 +66,7 @@ spec:
               # copy as workaround for rclone.conf read only (see https://github.com/rclone/rclone/issues/3655)
               - >-
                 cp /root/.config/rclone/rclone_ro.conf /root/.config/rclone/rclone.conf &&
-                rclone {{ .Values.command }} -v {{ if .Values.passwordSecret }}--password-command="echo $PASSWORD"{{ end }} {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ include "rclone-copy.getSourceOrUrl" . }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
+                rclone {{ .Values.command }} -v {{ if .Values.passwordSecret }}--password-command="cat /root/password"{{ end }} {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ include "rclone-copy.getSourceOrUrl" . }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
 
             volumeMounts:
               - name: {{ .Values.secretConfig | ternary "secret-config" "config" }}
@@ -76,11 +76,16 @@ spec:
               - name: config
                 mountPath: "/root/include-pattern.conf"
                 subPath: "include-pattern.conf"
+              {{- if .Values.passwordSecret }}
+              - name: password
+                mountPath: "/root/password"
+                subPath: {{ .Values.passwordSecret.key | quote }}
+              {{- end }}
 
             resources:
 {{ toYaml .Values.resources | indent 14 }}
 
-            {{- if or .Values.configPassword .Values.secretRefs .Values.passwordSecret }}
+            {{- if or .Values.configPassword .Values.secretRefs }}
             env:
             {{- if .Values.configPassword }}
               - name: RCLONE_CONFIG_PASS
@@ -96,13 +101,6 @@ spec:
                     name: {{ $value.name }}
                     key: "{{ $value.key }}"
             {{- end }}
-            {{- if .Values.passwordSecret }}
-              - name: PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.passwordSecret.name }}
-                    key: "{{ .Values.passwordSecret.key }}"
-            {{- end }}
             {{- end }}
 
           restartPolicy: {{ .Values.restartPolicy }}
@@ -115,4 +113,9 @@ spec:
             - name: config
               configMap:
                 name: rclone-config-{{ .Release.Name }}
+            {{- if .Values.passwordSecret }}
+            - name: password
+              secret:
+                secretName: {{ .Values.passwordSecret.name }}
+            {{- end }}
       backoffLimit: {{ .Values.backoffLimit }}
