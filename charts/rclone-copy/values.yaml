@@ -93,6 +93,6 @@ secretRefs: {}
 
 secretConfig: false
 
-passwordVariable: {}
+passwordSecret: {}
 #  name: secretName
 #  key: secretKey
