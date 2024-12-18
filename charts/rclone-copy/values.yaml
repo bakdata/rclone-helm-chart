@@ -90,3 +90,5 @@ secretRefs: {}
 #  RCLONE_CONFIG_PASS:
 #    name: secretName
 #    key: secretKey
+
+secretConfig: false
