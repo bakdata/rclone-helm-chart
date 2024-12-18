@@ -102,7 +102,12 @@ spec:
             {{- end }}
             {{- if .Values.passwordVariable }}
               - name: RCLONE_PASSWORD_COMMAND
-                value: {{ printf "echo $%s" .Values.passwordVariable | quote }}
+                value: "echo $PASSWORD"
+              - name: PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ .Values.passwordVariable.name }}
+                    key: "{{ .Values.passwordVariable.key }}"
             {{- end }}
             {{- end }}
 
