@@ -66,7 +66,7 @@ spec:
               # copy as workaround for rclone.conf read only (see https://github.com/rclone/rclone/issues/3655)
               - >-
                 {{- range $key, $value := .Values.passwordSecrets }}
-                {{ printf "%s=$(rclone obscure UNOBSCURED_%s) &&" $key $key }}
+                {{ printf "export %s=$(rclone obscure $UNOBSCURED_%s) &&" $key $key }}
                 {{- end }}
                 cp /root/.config/rclone/rclone_ro.conf /root/.config/rclone/rclone.conf &&
                 rclone {{ .Values.command }} -v {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ include "rclone-copy.getSourceOrUrl" . }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
