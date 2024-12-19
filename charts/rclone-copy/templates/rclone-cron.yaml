@@ -65,6 +65,9 @@ spec:
               - -c
               # copy as workaround for rclone.conf read only (see https://github.com/rclone/rclone/issues/3655)
               - >-
+                {{- range $key, $value := .Values.passwordSecrets }}
+                {{ printf "%s=$(rclone obscure UNOBSCURED_%s) &&" $key $key }}
+                {{- end }}
                 cp /root/.config/rclone/rclone_ro.conf /root/.config/rclone/rclone.conf &&
                 rclone {{ .Values.command }} -v {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ include "rclone-copy.getSourceOrUrl" . }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
 
@@ -80,7 +83,7 @@ spec:
             resources:
 {{ toYaml .Values.resources | indent 14 }}
 
-            {{- if or .Values.configPassword .Values.secretRefs }}
+            {{- if or .Values.configPassword .Values.secretRefs .Values.passwordSecrets }}
             env:
             {{- if .Values.configPassword }}
               - name: RCLONE_CONFIG_PASS
@@ -91,6 +94,13 @@ spec:
             {{- end }}
             {{- range $key, $value := .Values.secretRefs }}
               - name: "{{ $key }}"
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ $value.name }}
+                    key: "{{ $value.key }}"
+            {{- end }}
+            {{- range $key, $value := .Values.passwordSecrets }}
+              - name: {{ printf "UNOBSCURED_%s" $key | quote }}
                 valueFrom:
                   secretKeyRef:
                     name: {{ $value.name }}
