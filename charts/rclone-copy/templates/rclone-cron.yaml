@@ -69,11 +69,11 @@ spec:
                 rclone {{ .Values.command }} -v {{ .Values.arguments | join " " }} --include-from /root/include-pattern.conf "{{ include "rclone-copy.getSourceOrUrl" . }}" "{{ .Values.sync.dest.name }}:{{ .Values.sync.dest.path }}"
 
             volumeMounts:
-              - name: config
+              - name: {{ .Values.secretConfig | ternary "secret-config" "config" }}
                 # This is the default path where the rclone implementation assumes the config is located
                 mountPath: "/root/.config/rclone/rclone_ro.conf"
                 subPath: "rclone.conf"
-              - name: include-config
+              - name: config
                 mountPath: "/root/include-pattern.conf"
                 subPath: "include-pattern.conf"
 
@@ -100,10 +100,12 @@ spec:
 
           restartPolicy: {{ .Values.restartPolicy }}
           volumes:
-            - name: config
+            {{- if .Values.secretConfig }}
+            - name: secret-config
               secret:
                 secretName: rclone-config-{{ .Release.Name }}
-            - name: include-config
+            {{- end }}
+            - name: config
               configMap:
                 name: rclone-config-{{ .Release.Name }}
       backoffLimit: {{ .Values.backoffLimit }}

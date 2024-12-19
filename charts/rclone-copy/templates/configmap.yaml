@@ -3,5 +3,9 @@ kind: ConfigMap
 metadata:
   name: rclone-config-{{ .Release.Name }}
 data:
+  {{- if not .Values.secretConfig }}
+  rclone.conf: |
+{{ .Values.rcloneConf | indent 4 }}
+  {{- end }}
   include-pattern.conf: |
 {{ .Values.includePattern | indent 4 }}
