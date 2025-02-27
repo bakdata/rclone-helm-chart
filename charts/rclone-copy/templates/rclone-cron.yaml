@@ -6,7 +6,7 @@ apiVersion: batch/v1beta1
 {{- end }}
 kind: CronJob
 metadata:
-  name: {{ template "rclone-copy.fullname" . }}
+  name: {{ include "rclone-copy.fullname" . }}
 {{- if .Values.annotations }}
   annotations:
   {{- range $key, $value := .Values.annotations }}
@@ -14,9 +14,7 @@ metadata:
   {{- end }}
 {{- end }}
   labels:
-    app: {{ template "rclone-copy.name" . }}
-    chart: {{ template "rclone-copy.chart" . }}
-    release: {{ .Release.Name }}
+    {{- include "rclone-copy.labels" . | nindent 4 }}
     {{- range $key, $value := .Values.labels }}
     {{ $key }}: {{ $value }}
     {{- end }}
@@ -27,6 +25,12 @@ spec:
   failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
   concurrencyPolicy: Replace
   jobTemplate:
+    metadata:
+      labels:
+        {{- include "rclone-copy.labels" . | nindent 8 }}
+        {{- range $key, $value := .Values.labels }}
+        {{ $key }}: {{ $value }}
+        {{- end }}
     spec:
       template:
         metadata:
@@ -37,8 +41,7 @@ spec:
           {{- end }}
         {{- end }}
           labels:
-            app: {{ template "rclone-copy.name" . }}
-            release: {{ .Release.Name }}
+            {{- include "rclone-copy.labels" . | nindent 12 }}
             {{- range $key, $value := .Values.podLabels }}
             {{ $key }}: {{ $value }}
             {{- end }}
@@ -55,7 +58,7 @@ spec:
             {{- tpl (toYaml .) $root | nindent 12 }}
           {{- end }}
           containers:
-          - name: rclone-container
+          - name: {{ .Chart.Name }}
             image: rclone/rclone:{{ .Values.imageRelease }}
             imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
 
@@ -113,9 +116,9 @@ spec:
             {{- if .Values.secretConfig }}
             - name: secret-config
               secret:
-                secretName: rclone-config-{{ .Release.Name }}
+                secretName: rclone-config-{{ include "rclone-copy.fullname" . }}
             {{- end }}
             - name: config
               configMap:
-                name: rclone-config-{{ .Release.Name }}
+                name: rclone-config-{{ include "rclone-copy.fullname" . }}
       backoffLimit: {{ .Values.backoffLimit }}
