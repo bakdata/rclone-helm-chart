@@ -92,7 +92,7 @@ spec:
               - name: RCLONE_CONFIG_PASS
                 valueFrom:
                   secretKeyRef:
-                    name: rclone-config-{{ .Release.Name }}
+                    name: {{ include "rclone-copy.fullname" . }}
                     key: password
             {{- end }}
             {{- range $key, $value := .Values.secretRefs }}
@@ -116,9 +116,9 @@ spec:
             {{- if .Values.secretConfig }}
             - name: secret-config
               secret:
-                secretName: rclone-config-{{ include "rclone-copy.fullname" . }}
+                secretName: {{ include "rclone-copy.fullname" . }}
             {{- end }}
             - name: config
               configMap:
-                name: rclone-config-{{ include "rclone-copy.fullname" . }}
+                name: {{ include "rclone-copy.fullname" . }}
       backoffLimit: {{ .Values.backoffLimit }}
