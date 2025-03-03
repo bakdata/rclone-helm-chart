@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   rclone-copy:
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.023772482Z"
+    created: "2025-03-03T11:30:26.185150748Z"
     description: A helm chart for rclone copy on Kubernetes.
-    digest: 0dd79deaff7c504c3881b90deff6d3da70807cf237e73506946db7f3c94fd5f5
+    digest: fc2c3efdc6a1dfbbc92275792b08b6c09e9514867f5280f0c85da9637afd6716
     maintainers:
     - email: opensource@bakdata.com
       name: bakdata
@@ -14,7 +14,7 @@ entries:
     - rclone-copy/rclone-copy-2.28.1-SNAPSHOT.tgz
     version: 2.28.1-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.023175916Z"
+    created: "2025-03-03T11:30:26.184839532Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 597163fab11deeb1452311e0ae72a3a800be4fa3c17cdf932338f92e1cda1fbe
     maintainers:
@@ -26,7 +26,7 @@ entries:
     - rclone-copy/rclone-copy-2.28.0.tgz
     version: 2.28.0
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.022573207Z"
+    created: "2025-03-03T11:30:26.184542904Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 2550863a83c28a6f1875fc8258f1e52a02d1325ee41641ace79ec3097a4c75ef
     maintainers:
@@ -38,7 +38,7 @@ entries:
     - rclone-copy/rclone-copy-2.27.2-SNAPSHOT.tgz
     version: 2.27.2-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.021963667Z"
+    created: "2025-03-03T11:30:26.184250384Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: ca1196d3c7faf7afaa59ea98c67a1fee05b096bed476feaa3e01bf2b88bc7c36
     maintainers:
@@ -50,7 +50,7 @@ entries:
     - rclone-copy/rclone-copy-2.27.1.tgz
     version: 2.27.1
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.021413457Z"
+    created: "2025-03-03T11:30:26.183927256Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 5ae04d723f76d2f2ba989bbfd6e0bf90fc8330f495c3aa69eb76d12eb3eaa5a0
     maintainers:
@@ -62,7 +62,7 @@ entries:
     - rclone-copy/rclone-copy-2.27.1-SNAPSHOT.tgz
     version: 2.27.1-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.020814786Z"
+    created: "2025-03-03T11:30:26.183615299Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: de6bc74afb91fba0338871acfca9c1180695eb68ce05c598433634062c185fa0
     maintainers:
@@ -74,7 +74,7 @@ entries:
     - rclone-copy/rclone-copy-2.27.0.tgz
     version: 2.27.0
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.020299962Z"
+    created: "2025-03-03T11:30:26.182885026Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 2f373b326e9daa81c834916cef2abd834753dfdf991683ae9b600adc9b997581
     maintainers:
@@ -86,7 +86,7 @@ entries:
     - rclone-copy/rclone-copy-2.26.1-SNAPSHOT.tgz
     version: 2.26.1-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.01973219Z"
+    created: "2025-03-03T11:30:26.182159781Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 0bbff0cc376dfa792076a040886bc9fa02bac0b4556095c5f66c841407c7f769
     maintainers:
@@ -98,7 +98,7 @@ entries:
     - rclone-copy/rclone-copy-2.26.0.tgz
     version: 2.26.0
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.019218528Z"
+    created: "2025-03-03T11:30:26.181883141Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 6cbe6d2eb4638a4859d14e60967e732459a22bb2888915c6555eb6772f6d9d5e
     maintainers:
@@ -110,7 +110,7 @@ entries:
     - rclone-copy/rclone-copy-2.25.1-SNAPSHOT.tgz
     version: 2.25.1-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.018665142Z"
+    created: "2025-03-03T11:30:26.181619956Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 34e64ee532cd039078fa27eaac341e2d165bc84e3cb0a40e0e1f664e8045422f
     maintainers:
@@ -122,7 +122,7 @@ entries:
     - rclone-copy/rclone-copy-2.25.0.tgz
     version: 2.25.0
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.017881004Z"
+    created: "2025-03-03T11:30:26.181357071Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 1a4200e975e8ff99bb36854ad43ca06b1f2ef1d43f40f3dcb74bfdb5f0d6c65e
     maintainers:
@@ -134,7 +134,7 @@ entries:
     - rclone-copy/rclone-copy-2.24.1-SNAPSHOT.tgz
     version: 2.24.1-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.01720578Z"
+    created: "2025-03-03T11:30:26.181071043Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 8509aff1a0ad89b528837d2f6df950d75768fa8a192664151d7a6ea0558ba70b
     maintainers:
@@ -146,7 +146,7 @@ entries:
     - rclone-copy/rclone-copy-2.24.0.tgz
     version: 2.24.0
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.016381Z"
+    created: "2025-03-03T11:30:26.180799132Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 64b9119ffbf7db5f0885efe246f1cb277ead3e938759101a1006d30d79f6d297
     maintainers:
@@ -158,7 +158,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.2-SNAPSHOT.tgz
     version: 2.23.2-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.016117096Z"
+    created: "2025-03-03T11:30:26.18050054Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 5d8992f60c3af7c6b126361a8cf33a90391c0e9263b8b5326e672cc6dbc222b2
     maintainers:
@@ -170,7 +170,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.1.tgz
     version: 2.23.1
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.015732285Z"
+    created: "2025-03-03T11:30:26.180209222Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 7c2977fd13c18e5eb2fc10b3c05fadc7b81d0abeac568d8b64e6e62b14013a0e
     maintainers:
@@ -182,7 +182,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.1-SNAPSHOT.tgz
     version: 2.23.1-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.015298443Z"
+    created: "2025-03-03T11:30:26.179903216Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: 8ada537c002c52f8076a86082e141325db21ac921be7b1299a93f2bd64f85c9e
     maintainers:
@@ -194,7 +194,7 @@ entries:
     - rclone-copy/rclone-copy-2.23.0-SNAPSHOT.tgz
     version: 2.23.0-SNAPSHOT
   - apiVersion: v1
-    created: "2025-02-28T12:49:34.015022958Z"
+    created: "2025-03-03T11:30:26.179628339Z"
     description: A helm chart for rclone copy on Kubernetes.
     digest: e94e1646e26ebc7a389e6d49d305f87b018035faefe12445f1e4377a7d01e909
     maintainers:
@@ -205,4 +205,4 @@ entries:
     urls:
     - rclone-copy/rclone-copy-0.0.1-SNAPSHOT.tgz
     version: 0.0.1-SNAPSHOT
-generated: "2025-02-28T12:49:34.014525887Z"
+generated: "2025-03-03T11:30:26.179161401Z"
