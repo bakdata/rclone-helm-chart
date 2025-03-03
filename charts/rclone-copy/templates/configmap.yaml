@@ -1,7 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: rclone-config-{{ .Release.Name }}
+  name: {{ include "rclone-copy.fullname" . }}
+  labels:
+    {{- include "rclone-copy.labels" . | nindent 4 }}
+    {{- range $key, $value := .Values.labels }}
+    {{ $key }}: {{ $value }}
+    {{- end }}
 data:
   {{- if not .Values.secretConfig }}
   rclone.conf: |

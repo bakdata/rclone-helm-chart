@@ -1,4 +1,5 @@
-nameOverride: bakdata-rclone-copy
+nameOverride: ""
+fullnameOverride: ""
 
 # The rclone command to run. Default is "copy".
 command: "copy"
