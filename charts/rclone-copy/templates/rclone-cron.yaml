@@ -27,7 +27,7 @@ spec:
   jobTemplate:
     metadata:
       labels:
-        {{- include "rclone-copy.labels" . | nindent 8 }}
+        {{- include "rclone-copy.selectorLabels" . | nindent 8 }}
         {{- range $key, $value := .Values.labels }}
         {{ $key }}: {{ $value }}
         {{- end }}
@@ -41,7 +41,7 @@ spec:
           {{- end }}
         {{- end }}
           labels:
-            {{- include "rclone-copy.labels" . | nindent 12 }}
+            {{- include "rclone-copy.selectorLabels" . | nindent 12 }}
             {{- range $key, $value := .Values.podLabels }}
             {{ $key }}: {{ $value }}
             {{- end }}
