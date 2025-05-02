@@ -96,7 +96,7 @@ secretFileRefs: {}
 #  RCLONE_SFTP_KEY_FILE:
 #    name: secretName
 #    key: secretKey
-#    path: path/to/mounted/file
+#    path: /path/to/mounted/file
 
 secretConfig: true
 
