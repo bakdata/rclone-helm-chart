@@ -83,7 +83,7 @@ spec:
                 mountPath: "/root/include-pattern.conf"
                 subPath: "include-pattern.conf"
               {{- range $key, $value := .Values.secretFileRefs }}
-              - name: "{{ $key }}"
+              - name: "{{ $key | lower | replace "_" "-" }}"
                 mountPath: "{{ $value.path }}"
                 subPath: "{{ $value.key }}"
               {{- end }}
@@ -131,7 +131,7 @@ spec:
               configMap:
                 name: {{ include "rclone-copy.fullname" . }}
             {{- range $key, $value := .Values.secretFileRefs }}
-            - name: "{{ $key }}"
+            - name: "{{ $key | lower | replace "_" "-" }}"
               secret:
                 secretName: "{{ $value.name }}"
             {{- end }}
