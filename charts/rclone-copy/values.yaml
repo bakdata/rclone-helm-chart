@@ -92,6 +92,12 @@ secretRefs: {}
 #    name: secretName
 #    key: secretKey
 
+secretFileRefs:
+#  RCLONE_SFTP_KEY_FILE:
+#    name: secretName
+#    key: secretKey
+#    path: path/to/mounted/file
+
 secretConfig: true
 
 passwordSecrets: {}
