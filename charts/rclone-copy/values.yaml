@@ -98,3 +98,5 @@ passwordSecrets: {}
 #  RCLONE_FTP_PASS: # will be obscured using rclone obscure
 #    name: secretName
 #    key: secretKey
+
+concurrencyPolicy: Replace
