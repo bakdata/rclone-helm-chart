@@ -23,7 +23,7 @@ spec:
   schedule: "{{ .Values.schedule }}"
   successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
   failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
-  concurrencyPolicy: Replace
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
   jobTemplate:
     metadata:
       labels:
